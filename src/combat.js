@@ -26,9 +26,10 @@ const receiveDamage = (player) => ({
   }
 });
 
-const Death = (player) => ({
+const death = (player) => ({
   //still working on the kicks for the death mechanic 
-  life:(lifeStatusNegative) => {
+  life:() => {
+
     return `${player.name} is dead`
   }
 });
