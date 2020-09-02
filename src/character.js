@@ -7,29 +7,34 @@ const storeState = () => {
   }
 }
 
-const stateControl = storeState();
-
-  const changeState = (prop) => {
-    return (value) => {
-      return (state) => ({
-        ...state,
-        [prop] : (state[prop] || 0) + value 
-      })
-    }
+const changeState = (prop) => {
+  return (value) => {
+    return (state) => ({
+      ...state,
+      [prop] : (state[prop] || 0) + value 
+    })
   }
+}
 
-  const changeNameState = (prop) => {
-    return (value) => {
-      return (state) => ({
-        ...state, 
-        [prop] : value
-      })
-    }
+const changeNameState = (prop) => {
+  return (value) => {
+    return (state) => ({
+      ...state, 
+      [prop] : value
+    })
   }
+}
 
-  const initialValues = {race:"", name:"", life:0, defense:0, strike:0};
+const newPlayer = (name) => {
+  let player = {
+    name
+  }
+  return { ...player, ...race(player), ...life(player), ...defense(player), ...strike(player)}
+}
+
+  const initialValues = {race:"", name:"", life:10, defense:0, strike:0};
+
   const player = storeState(initialValues)
-
 
   const changeName = changeNameState ("name")
 
@@ -39,14 +44,8 @@ const stateControl = storeState();
   const attack = changeState("strike")(2)
 
   const newPlayer = player(armor)
+
   console.log("adding values of 2", newPlayer)
-
-  const newPlayer = (name) => {
-    let player = {
-      name
-    }
-    return { ...player, ...race(player), ...life(player), ...defense(player), ...strike(player)}
-  }
-
+  // working on creating a new character but testing is not reading the export properly
 
   export { newPlayer, character, constitution, armor, attack }
