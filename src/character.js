@@ -1,9 +1,10 @@
 import { storeState, changeState, changeNameState } from "./functionFactory"
+
 const newPlayer = (name) => {
-  let player = {
+  let state = {
     name
   }
-  return { ...player, ...armor(player) ...attack(player)}
+  return { ...state, ...armor(state), ...attack(state)}
 }
 
   const initialValues = {race:"", name:"", life:10, defense:0, strike:0};
@@ -18,10 +19,6 @@ const newPlayer = (name) => {
   const constitution = changeState("life")(2)
   const attack = changeState("strike")(2)
 
-  const newPlayer = player1(armor)
   const newPlayer2 = player2(constitution)
-  
-  
-  // working on creating a new character but testing is not reading the export properly
 
   export { newPlayer, character, constitution, armor, attack }

@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="src/styles.css"></script>
+    <script type="text/javascript" src="plant.js"></script>
+    <title>RPG</title>
+  </head>
+  <body>
+    <h1 class="Jumbotron">Little shop of Horids</h1>
+    <div class="container">
+      <div class="grow-buttons">
+        <button class="btn-success" id="feed">Add soil</button><br>
+        <button class="btn-success" id="greenFoods">Add Green growth</button><br>
+        <button class="btn-success" id="redFoods">Add Red growth</button><br>
+        <button class="btn-success" id="blueFoods">Add Blue growth</button><br>
+        <button class="btn-success" id="illuminates">Give it some light</button><br>
+        <button class="btn-success" id="scorcheds">Leave it outside</button><br>
+        <button class="btn-success" id="highHeats">Put it under a lamp</button><br>
+        <button class="btn-success" id="hydrates">give it water</button><br>
+        <button class="btn-success" id="overHydrates">Dump a Bucket of water on it</button><br>
+        <button class="btn-success" id="superWaters">Give it a special formula</button><br>
+        <button class="btn-success" id="showName">Show name</button><br>
+      </div>
+      <div class="plant-info">
+        <h3>Your Plant's Values</h3>
+        <h4>Name:<div id="name-value"></div></h4>
+        <h4>Soil:<div id="soil-value"></div></h4>
+        <h4>Water:<div id="water-value"></div></h4>
+        <h4>Light:<div id="light-value"></div></h4>
+      </div>
+      <button class="btn-success" id="canEat">Add eating ability</button><br>
+    </div>
+    <form>
+      <label>Name:</label>
+      <input id="name" type="text">
+      <button class="btn-success" id="newPlant">Create a new Plant</button><br>
+    </form>
+    <div id="newPlantCreated"></div>
+  </body>
+</html>

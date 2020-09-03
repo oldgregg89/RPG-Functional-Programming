@@ -1,17 +1,15 @@
-import { storeState, changeState, changeNameState } from "./functionFactory"
+import { storeState, changeState} from "./functionFactory"
+import {armor, constitution, attack} from '../src/character.js'
 
-const itemsStats = {life: 0, armor:0, strike: 0}
+const itemsStats = {life: 0, armor:0, strike: 0};
 const item = itemsStats
-const armorSpecific = changeState(armor)(2)
-const attackSpecific = changeState(strike)(1)
-const lifeSpecific = changeState(life)(3)
 
-const magicArmor = armorSpecific
-const bowstaff = attackSpecific
-const lifeOrb = lifeSpecific
-const carposArmor = armorSpecific
-const claymore = attackSpecific
-const lifeStealingNeckless = lifeSpecific
+const magicArmor = {life: 2, armor:2, strike: 0};
+const bowstaff = {life: 0, armor:0, strike: 2};
+const lifeOrb = {life: 3, armor:0, strike: 0};
+const carposArmor = {life: 0, armor:4, strike: 0};
+const claymore = {life: 0, armor:0, strike: 1};
+const lifeStealingNeckless = {life: 2, armor:0, strike:3};
 
-export {item, magicArmor, bowstaff, lifeOrb, armorSpecific, attackSpecific, lifeSpecific, itemsStats}
+export {item, magicArmor, bowstaff, lifeOrb}
 
