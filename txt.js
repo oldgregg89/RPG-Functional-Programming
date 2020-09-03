@@ -1,41 +1,61 @@
-const storeState = () => {
-  let currentState = {};
+const storeState = (player) => {
+  let currentState = player;  
   return (stateChangeFunction = state => state) => {
-    const newState = stateChangeFunction(currentState); //const newState = blueFood(currentState);
-    currentState = {...newState}; //{soil:5} 
+    const newState = stateChangeFunction(currentState);
+    currentState = {...newState};
     return newState;
   }
 }
-//function factory
+
 const changeState = (prop) => {
+  wake: (prop) => {
+    return (value) => {
+      return (state) => ({
+        ...state,
+        [prop] : (state[prop] || 0) + value 
+      })
+    }
+  }
+}
+
+const changeNameState = (prop) => {
   return (value) => {
     return (state) => ({
-      ...state,
-      [prop] : (state[prop] || 0) + value
+      ...state, 
+      [prop] : value
     })
   }
 }
 
-const playerFxns = function(name) {
-  let state = {
-    name
-  }
-
-  return { ...state, ...inneffectiveAttack(state), ...effectiveAttack(state) };
+const playerVibes = (prop, value) => {
+  // let player = {
+  //   name
+  // }
+  return { ...changeState(prop)(value), ...changeNameState(prop)(value)}
 }
-const initialValues = {race:"", name:"", life:10, defense:10, strike:0};
 
-const stateControl = storeState();
-const player1 = storeState(initialValues);
-const player2 = storeState(initialValues);
-console.log(player1)
+  const initialValues = {life:10, defense:10, strike:0};
+  const player = storeState(initialValues)
+  const player2 = storeState(initialValues)
 
-const attackLife = changeState("defense"); //
-const inneffectiveAttack = attackLife(-3);
-const effectiveAttack = attackLife(-10);
+  // const armor = changeState("defense")(2)
+  // const character = changeNameState("race")("Troll")
+  // const constitution = changeState("life")(2)
+  // const attack = changeState("strike")(2)
 
+  // const newPlayer = player(armor)
+  // const newPlayer2 = player2(constitution)
 
-const newPlayerState = player1(inneffectiveAttack);
-console.log("add 5 to soil", newPlayerState);
-newPlayer1State = {race:"", name:"", life:10, defense:10, strike:0};
-const checkPlayer1State = player1();
+  const newPlayer = playerVibes(player)
+
+  console.log()
+  console.log(newPlayer.changeState("defense")(10))
+
+  
+  // console.log("adding values of 2", newPlayer)
+  // console.log("adding values of 2", newPlayer2)
+  
+  
+  // working on creating a new character but testing is not reading the export properly
+
+  // export { newPlayer, character, constitution, armor, attack }
